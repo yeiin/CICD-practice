@@ -55,7 +55,7 @@ jobs:
           DOCKER_EXISTS=$(ssh -i ~/.ssh/id_rsa) -o StrictHostKeyChecking=no ${{secrets.SERVER_USER}}@#{{secrets.SERVER_HOST}} 'command -v docker > /dev/null && echo "true" || echo "false' echo "docker_exists=$DOCKER_EXISTS" >> $GITHUB_OUTPUT
 
       - name: Check if Node.js is installed
-        id: check-node.js
+        id: check-nodejs
         run: |
           NODE_EXISTS=$(ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} 'command -v node >/dev/null && echo "true" || echo "false"') echo "node_exists=$NODE_EXISTS" >> $GITHUB_OUTPUT
 
