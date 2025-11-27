@@ -54,7 +54,7 @@ jobs:
       - name: Checkout if Docker is installed
         id: check-docker
         run: |
-          DOCKER_EXISTS=$(ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{secrets.SERVER_USER}}@#{{secrets.SERVER_HOST}} 'command -v docker > /dev/null && echo "true" || echo "false"') 
+          DOCKER_EXISTS=$(ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{secrets.SERVER_USER}}@${{secrets.SERVER_HOST}} 'command -v docker > /dev/null && echo "true" || echo "false"') 
           echo "docker_exists=$DOCKER_EXISTS" >> $GITHUB_OUTPUT
 
       - name: Check if Node.js is installed
